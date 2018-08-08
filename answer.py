@@ -36,12 +36,41 @@ class Ui_Form(object):
         self.label_3 = QtGui.QLabel(Dialog)
         self.label_3.setGeometry(QtCore.QRect(50, 290, 90, 90))
         self.label_3.setObjectName(_fromUtf8("label_3"))
+
+        self.label_6 = QtGui.QLabel(Dialog)
+        self.label_6.setGeometry(QtCore.QRect(170, 10, 54, 12))
+        self.label_6.setObjectName(_fromUtf8("label_6"))
+        self.label_7 = QtGui.QLabel(Dialog)
+        self.label_7.setGeometry(QtCore.QRect(170, 30, 54, 12))
+        self.label_7.setObjectName(_fromUtf8("label_7"))
+
+        self.lineEdit = QtGui.QLineEdit(Dialog)
+        self.lineEdit.setGeometry(QtCore.QRect(290, 180, 291, 31))
+        self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
+        self.pushButton = QtGui.QPushButton(Dialog)
+        self.pushButton.setGeometry(QtCore.QRect(600, 180, 71, 31))
+        self.pushButton.setObjectName(_fromUtf8("pushButton"))
+        self.pushButton.clicked.connect(self.btnClick)
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
+        self.label.setPixmap(QtGui.QPixmap('./peasant2.png'))
+        self.label_2.setPixmap(QtGui.QPixmap('./peasant.png'))
+        self.label_3.setPixmap(QtGui.QPixmap('./me.gif'))
+        self.pushButton.setText(_translate("Form", "确定", None))
+        self.label_6.setText(_translate("Form", "poker", None))
+        self.label_7.setText(_translate("Form", "count", None))  
+
+    def btnClick(self, Dialog):
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Bernard MT Condensed"))
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        poker_t ='2jjjd999988654444'
+        poker_t = self.lineEdit.text()
         for i in range(len(poker_t)):
             self.label_4 = QtGui.QLabel(Dialog)
             self.label_5 = QtGui.QLabel(Dialog)
@@ -51,15 +80,7 @@ class Ui_Form(object):
             self.label_4.setPixmap(QtGui.QPixmap('./poke_p.png'))
             self.label_5.setFont(font)
             self.label_5.setText(_translate("Form", getPokerCharacter(poker_t[i]), None))
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
 
-    def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
-        self.label.setPixmap(QtGui.QPixmap('./peasant2.png'))
-        self.label_2.setPixmap(QtGui.QPixmap('./peasant.png'))
-        self.label_3.setPixmap(QtGui.QPixmap('./me.gif'))
-    
 def getPokerCharacter(s):
     if s == 'd':
         return '10'
